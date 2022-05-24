@@ -1,6 +1,6 @@
 Model
 =====
 
-.. automodule:: src.model
+.. automodule:: src.mvc.model
    :members:
    :undoc-members:

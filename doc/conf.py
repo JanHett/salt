@@ -17,13 +17,13 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-from info import project_name, author
+from src.info import project_name, author
 project = project_name
 copyright = f'2022, {author}'
 author = author
 
 # The full version, including alpha/beta/rc tags
-from info import version
+from src.info import version
 release = version
 
 

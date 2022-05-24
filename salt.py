@@ -1,5 +1,5 @@
 import sys
-from src.mvc.session import SessionController
+from src.mvc.lifecycle.session import SessionController
 
 if __name__ == "__main__":
 

@@ -1,6 +1,6 @@
 Controller
 ==========
 
-.. automodule:: src.controller
+.. automodule:: src.mvc.controller
    :members:
    :undoc-members:

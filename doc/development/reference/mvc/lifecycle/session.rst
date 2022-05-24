@@ -1,6 +1,6 @@
 Session
 =======
 
-.. automodule:: src.mvc.session
+.. automodule:: src.mvc.lifecycle.session
    :members:
    :undoc-members:
