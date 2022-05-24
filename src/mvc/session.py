@@ -1,8 +1,9 @@
 from typing import Iterable
 
+from ...info import project_name, version
 from ..controller import AbstractBaseController
-from ..model import AbstractModel, AbstractModelEvent, FileModel
-from .file import FileController
+from ..model import AbstractModel, AbstractModelEvent
+from .file import FileController, FileModel
 
 from PySide2.QtCore import Qt
 from PySide2.QtWidgets import QApplication, QMainWindow
@@ -15,10 +16,19 @@ import argparse
 
 class FilesOpenedEvent(AbstractModelEvent):
     """
-    Fired whenever files are opened in a session. The opened files are passed as
-    an argument to event handlers.
+    Fired whenever files are opened in a session.
     """
     _name = 'files_opened'
+
+    def __init__(self, *files: Iterable[FileModel]):
+        self._files = files
+
+    @property
+    def files(self):
+        """
+        The files that were opened
+        """
+        return self._files
 
 class SessionModel(AbstractModel):
     """
@@ -47,7 +57,7 @@ class StartWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
 
-        self.setWindowTitle("Salt")
+        self.setWindowTitle(f"{project_name} {version}")
 
 # ------------------------------------------------------------------------------
 # CONTROLLER
@@ -119,5 +129,5 @@ class SessionController(AbstractBaseController):
     def _open_files(self, *files: Iterable[str]) -> None:
         self._model.open_files([FileController(f, self.headless).model for f in files])
             
-    def _handle_files_opened(self, files):
-        print("files opened:", files)
+    def _handle_files_opened(self, event: FilesOpenedEvent):
+        print("files opened:", event.files)
