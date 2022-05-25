@@ -6,3 +6,4 @@ Class Reference
    :caption: Contents:
 
    mvc/index
+   processing/index

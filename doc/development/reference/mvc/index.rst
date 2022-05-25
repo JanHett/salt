@@ -7,4 +7,4 @@ MVC Layer Reference
 
    model
    controller
-   lifecycle/session
+   lifecycle/index
