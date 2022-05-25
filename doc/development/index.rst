@@ -5,5 +5,5 @@ Developer Documentation
    :maxdepth: 2
    :caption: Contents:
 
-   architecture
+   concepts/index
    reference/index
